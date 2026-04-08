@@ -18,20 +18,23 @@ export default function HomePage() {
   const specialties = [
     {
       title: 'Thịt Kho',
+      tag: 'Plat emblématique',
       description:
-        'Porc fondant mijoté lentement, sauce caramélisée, généreuse et réconfortante.',
+        'Porc longuement mijoté, sauce caramélisée profonde et texture fondante, dans l’esprit des recettes familiales vietnamiennes.',
       image: '/Thit-Kho-Close-Up-saved-for-web.png',
     },
     {
       title: 'Canh Chua',
+      tag: 'Équilibre & fraîcheur',
       description:
-        'Soupe vietnamienne acidulée, fraîche, parfumée, légère et pleine d’équilibre.',
+        'Une soupe vietnamienne acidulée, légère et parfumée, pensée autour de l’équilibre entre fraîcheur, douceur et vivacité.',
       image: '/cach-lam-canh-chua-chay-ngon-1.jpg',
     },
     {
       title: 'Nori Tacos',
+      tag: 'Signature maison',
       description:
-        'Une création signature croustillante, gourmande et directe, pensée pour Strasbourg.',
+        'Une création croustillante et généreuse, entre texture, fraîcheur et gourmandise, imaginée comme une spécialité propre à Maman Hà.',
       image: '/36474.jpg.jpg',
     },
   ]
@@ -50,7 +53,7 @@ export default function HomePage() {
             className="mx-auto max-w-5xl text-5xl leading-[0.94] tracking-tight md:text-7xl lg:text-[92px]"
             style={{ textShadow: '0 2px 18px rgba(79, 42, 22, 0.14)' }}
           >
-            La vraie cuisine du Vietnam,
+            La cuisine du Vietnam,
             <br />
             comme Maman Hà
             <br />
@@ -89,35 +92,44 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto mb-14 max-w-3xl text-center lg:mb-16">
             <p className="mb-4 font-sans text-sm uppercase tracking-[0.28em] text-[#f3e6d5]/75">
-              À la carte
+              À découvrir
             </p>
             <h2 className="text-5xl leading-[0.96] md:text-6xl lg:text-[74px]">
               Nos spécialités
             </h2>
+            <p className="mx-auto mt-5 max-w-2xl font-sans text-[17px] leading-relaxed text-[#f3e6d5]/88 md:text-[18px]">
+              Quelques plats qui racontent l’esprit de la maison : des recettes
+              transmises, des équilibres travaillés et une cuisine pensée pour être
+              partagée.
+            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {specialties.map((item) => (
               <article
                 key={item.title}
-                className="overflow-hidden rounded-[26px] bg-[#a85c4d] shadow-[0_18px_40px_rgba(59,24,18,0.18)] ring-1 ring-[#f2dfca]/8"
+                className="group overflow-hidden rounded-[28px] bg-[#a85c4d] shadow-[0_18px_40px_rgba(59,24,18,0.18)] ring-1 ring-[#f2dfca]/8 transition duration-300 hover:-translate-y-1"
               >
                 <div className="overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-[320px] w-full object-cover object-center transition duration-500 hover:scale-[1.03] md:h-[360px]"
+                    className="h-[320px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.04] md:h-[360px]"
                   />
                 </div>
 
                 <div className="px-6 pb-7 pt-6 text-[#f6ede1]">
-                  <p className="mb-3 font-sans text-xs uppercase tracking-[0.22em] text-[#f3e6d5]/70">
-                    Signature
+                  <p className="mb-3 font-sans text-[11px] uppercase tracking-[0.22em] text-[#f3e6d5]/72">
+                    {item.tag}
                   </p>
+
                   <h3 className="text-4xl leading-none md:text-[42px]">
                     {item.title}
                   </h3>
-                  <p className="mt-4 font-sans text-[18px] leading-relaxed text-[#f4e8db]/90">
+
+                  <div className="mt-4 h-px w-12 bg-[#f3e6d5]/35" />
+
+                  <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#f4e8db]/92">
                     {item.description}
                   </p>
                 </div>
@@ -128,9 +140,9 @@ export default function HomePage() {
           <div className="mt-14 text-center">
             <Link
               to="/menu"
-              className="inline-flex rounded-full bg-[#f1e3cf] px-8 py-4 font-sans text-lg text-[#8d473e] shadow-[0_12px_30px_rgba(59,24,18,0.18)] transition hover:-translate-y-0.5 hover:opacity-95"
+              className="inline-flex rounded-full border border-[#f1e3cf]/30 bg-[#f1e3cf] px-8 py-4 font-sans text-lg text-[#8d473e] shadow-[0_12px_30px_rgba(59,24,18,0.18)] transition hover:-translate-y-0.5 hover:opacity-95"
             >
-              Découvrir la carte
+              Voir le menu complet
             </Link>
           </div>
         </div>
