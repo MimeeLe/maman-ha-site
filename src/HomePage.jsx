@@ -40,6 +40,89 @@ export default function HomePage() {
     },
   ]
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Restaurant',
+    name: 'Maman Hà',
+    url: 'https://maman-ha.com/',
+    image: 'https://maman-ha.com/logo-maman-ha.png',
+    logo: 'https://maman-ha.com/logo-maman-ha.png',
+    telephone: '+33388252140',
+    email: 'contact@maman-ha.com',
+    servesCuisine: ['Vietnamese'],
+    menu: 'https://maman-ha.com/menu',
+    sameAs: ['https://www.instagram.com/restaurant.maman.ha'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '9 rue de Berne',
+      postalCode: '67000',
+      addressLocality: 'Strasbourg',
+      addressCountry: 'FR',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Tuesday',
+        opens: '11:30',
+        closes: '14:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Tuesday',
+        opens: '18:30',
+        closes: '21:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Wednesday',
+        opens: '11:30',
+        closes: '14:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Wednesday',
+        opens: '18:30',
+        closes: '21:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Thursday',
+        opens: '11:30',
+        closes: '14:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Thursday',
+        opens: '18:30',
+        closes: '21:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Friday',
+        opens: '11:30',
+        closes: '14:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Friday',
+        opens: '18:30',
+        closes: '21:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '11:30',
+        closes: '14:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '18:30',
+        closes: '21:00',
+      },
+    ],
+  }
+
   return (
     <>
       <Helmet>
@@ -56,6 +139,7 @@ export default function HomePage() {
         />
         <meta property="og:url" content="https://maman-ha.com/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <main>
@@ -71,7 +155,7 @@ export default function HomePage() {
               className="mx-auto max-w-5xl text-5xl leading-[0.94] tracking-tight md:text-7xl lg:text-[92px]"
               style={{ textShadow: '0 2px 18px rgba(79, 42, 22, 0.14)' }}
             >
-              La vraie cuisine du Vietnam,
+              La cuisine du Vietnam,
               <br />
               comme Maman Hà
               <br />
