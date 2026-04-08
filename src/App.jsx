@@ -51,9 +51,16 @@ function SiteLayout({ children }) {
       <footer className="bg-[#efe0ca] text-[#332a24]">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-14 lg:px-8 lg:pb-10 lg:pt-16">
           <div className="border-b border-[#8d473e]/15 pb-10">
+            <img
+              src="/logo-maman-ha.png"
+              alt="Logo Maman Hà"
+              className="mb-6 h-20 w-auto rounded-full shadow-[0_10px_25px_rgba(59,24,18,0.10)]"
+            />
+
             <p className="font-sans text-sm uppercase tracking-[0.24em] text-[#8d473e]">
               Restaurant Maman Hà
             </p>
+
             <p className="mt-4 max-w-2xl text-3xl leading-tight md:text-4xl">
               Une cuisine vietnamienne transmise,
               <br />
