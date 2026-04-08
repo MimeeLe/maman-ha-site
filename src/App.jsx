@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
+import ScrollToTop from './ScrollToTop'
 import HomePage from './HomePage'
 import MenuPage from './MenuPage'
 import HistoirePage from './HistoirePage'
@@ -24,8 +25,8 @@ function SiteLayout({ children }) {
     >
       <header className="sticky top-0 z-50 border-b border-[#f3dfc5]/10 bg-[#8d473e]/94 text-[#f6ecdf] backdrop-blur">
         <div className="mx-auto max-w-7xl px-5 py-4 lg:px-12">
-          <div className="flex items-center justify-between gap-4">
-            <div className="hidden md:flex md:items-center md:gap-8">
+          <div className="relative flex items-center justify-between">
+            <nav className="hidden md:flex md:items-center md:gap-6 md:font-sans md:text-[15px]">
               <NavLink to="/" className={navLinkClass}>
                 Accueil
               </NavLink>
@@ -38,19 +39,19 @@ function SiteLayout({ children }) {
               <NavLink to="/infos" className={navLinkClass}>
                 Infos
               </NavLink>
-            </div>
+            </nav>
 
-            <div className="min-w-0 flex-1 text-center md:flex-none">
+            <div className="absolute left-1/2 -translate-x-1/2 text-center">
               <NavLink
                 to="/"
                 onClick={closeMobileMenu}
-                className="inline-block text-[18px] leading-none tracking-[0.08em] whitespace-nowrap sm:text-[22px] md:px-6 md:text-[30px] lg:text-[38px]"
+                className="inline-block text-[18px] leading-none tracking-[0.08em] whitespace-nowrap sm:text-[22px] md:text-[30px] lg:text-[38px]"
               >
                 RESTAURANT MAMAN HÀ
               </NavLink>
             </div>
 
-            <div className="hidden md:flex md:justify-end md:font-sans md:text-[15px]">
+            <div className="ml-auto hidden md:flex md:justify-end md:font-sans md:text-[15px]">
               <a
                 href="https://www.instagram.com/restaurant.maman.ha"
                 target="_blank"
@@ -65,7 +66,7 @@ function SiteLayout({ children }) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#f3dfc5]/20 text-[#f6ecdf] md:hidden"
+              className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-full border border-[#f3dfc5]/20 text-[#f6ecdf] md:hidden"
               aria-label="Ouvrir le menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -206,39 +207,42 @@ function SiteLayout({ children }) {
 
 export default function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <SiteLayout>
-            <HomePage />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/menu"
-        element={
-          <SiteLayout>
-            <MenuPage />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/histoire"
-        element={
-          <SiteLayout>
-            <HistoirePage />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/infos"
-        element={
-          <SiteLayout>
-            <InfosPage />
-          </SiteLayout>
-        }
-      />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <SiteLayout>
+              <HomePage />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/menu"
+          element={
+            <SiteLayout>
+              <MenuPage />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/histoire"
+          element={
+            <SiteLayout>
+              <HistoirePage />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/infos"
+          element={
+            <SiteLayout>
+              <InfosPage />
+            </SiteLayout>
+          }
+        />
+      </Routes>
+    </>
   )
 }
