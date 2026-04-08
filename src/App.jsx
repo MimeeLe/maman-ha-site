@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import HomePage from './HomePage'
 import MenuPage from './MenuPage'
@@ -5,8 +6,12 @@ import HistoirePage from './HistoirePage'
 import InfosPage from './InfosPage'
 
 function SiteLayout({ children }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const navLinkClass = ({ isActive }) =>
     `transition hover:opacity-80 ${isActive ? 'underline underline-offset-4' : ''}`
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
     <div
@@ -18,37 +23,100 @@ function SiteLayout({ children }) {
       }}
     >
       <header className="sticky top-0 z-50 border-b border-[#f3dfc5]/10 bg-[#8d473e]/94 text-[#f6ecdf] backdrop-blur">
-        <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-8 py-4 lg:px-12">
-          <nav className="flex items-center gap-8 font-sans text-[15px]">
-            <NavLink to="/" className={navLinkClass}>
-              Accueil
-            </NavLink>
-            <NavLink to="/menu" className={navLinkClass}>
-              Menu
-            </NavLink>
-            <NavLink to="/histoire" className={navLinkClass}>
-              Histoire
-            </NavLink>
-            <NavLink to="/infos" className={navLinkClass}>
-              Infos
-            </NavLink>
-          </nav>
+        <div className="mx-auto max-w-7xl px-5 py-4 lg:px-12">
+          <div className="flex items-center justify-between gap-4">
+            <div className="hidden md:flex md:items-center md:gap-8">
+              <NavLink to="/" className={navLinkClass}>
+                Accueil
+              </NavLink>
+              <NavLink to="/menu" className={navLinkClass}>
+                Menu
+              </NavLink>
+              <NavLink to="/histoire" className={navLinkClass}>
+                Histoire
+              </NavLink>
+              <NavLink to="/infos" className={navLinkClass}>
+                Infos
+              </NavLink>
+            </div>
 
-          <div className="px-6 text-center text-[22px] leading-none tracking-[0.12em] whitespace-nowrap md:text-[30px] lg:text-[38px]">
-            RESTAURANT MAMAN HÀ
-          </div>
+            <div className="min-w-0 flex-1 text-center md:flex-none">
+              <NavLink
+                to="/"
+                onClick={closeMobileMenu}
+                className="inline-block text-[18px] leading-none tracking-[0.08em] whitespace-nowrap sm:text-[22px] md:px-6 md:text-[30px] lg:text-[38px]"
+              >
+                RESTAURANT MAMAN HÀ
+              </NavLink>
+            </div>
 
-          <div className="flex justify-end font-sans text-[15px]">
-            <a
-              href="https://www.instagram.com/restaurant.maman.ha"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="transition hover:opacity-80"
+            <div className="hidden md:flex md:justify-end md:font-sans md:text-[15px]">
+              <a
+                href="https://www.instagram.com/restaurant.maman.ha"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:opacity-80"
+              >
+                Instagram
+              </a>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#f3dfc5]/20 text-[#f6ecdf] md:hidden"
+              aria-label="Ouvrir le menu"
+              aria-expanded={mobileMenuOpen}
             >
-              Instagram
-            </a>
+              <span className="text-xl leading-none">
+                {mobileMenuOpen ? '×' : '☰'}
+              </span>
+            </button>
           </div>
+
+          {mobileMenuOpen && (
+            <div className="mt-4 rounded-2xl border border-[#f3dfc5]/10 bg-[#7f3d36]/95 px-5 py-5 md:hidden">
+              <nav className="flex flex-col gap-4 font-sans text-[15px]">
+                <NavLink
+                  to="/"
+                  className={navLinkClass}
+                  onClick={closeMobileMenu}
+                >
+                  Accueil
+                </NavLink>
+                <NavLink
+                  to="/menu"
+                  className={navLinkClass}
+                  onClick={closeMobileMenu}
+                >
+                  Menu
+                </NavLink>
+                <NavLink
+                  to="/histoire"
+                  className={navLinkClass}
+                  onClick={closeMobileMenu}
+                >
+                  Histoire
+                </NavLink>
+                <NavLink
+                  to="/infos"
+                  className={navLinkClass}
+                  onClick={closeMobileMenu}
+                >
+                  Infos
+                </NavLink>
+                <a
+                  href="https://www.instagram.com/restaurant.maman.ha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-2 text-[#f3dfc5] transition hover:opacity-80"
+                >
+                  Instagram
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
