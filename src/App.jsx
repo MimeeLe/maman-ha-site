@@ -39,7 +39,13 @@ function SiteLayout({ children }) {
           </div>
 
           <div className="flex justify-end font-sans text-[15px]">
-            <a href="#" aria-label="Instagram" className="transition hover:opacity-80">
+            <a
+              href="https://www.instagram.com/restaurant.maman.ha"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="transition hover:opacity-80"
+            >
               Instagram
             </a>
           </div>
@@ -107,6 +113,14 @@ function SiteLayout({ children }) {
                   className="block underline underline-offset-4 transition hover:opacity-80"
                 >
                   03 88 25 21 40
+                </a>
+                <a
+                  href="https://www.instagram.com/restaurant.maman.ha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex rounded-full bg-[#8d473e] px-5 py-2.5 text-[#f7efe6] no-underline transition hover:opacity-90"
+                >
+                  Instagram
                 </a>
               </div>
             </div>
