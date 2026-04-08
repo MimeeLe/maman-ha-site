@@ -81,11 +81,12 @@ function SiteLayout({ children }) {
               <h4 className="text-3xl md:text-[36px]">Horaires</h4>
               <div className="mt-5 space-y-3 font-sans text-[17px] leading-relaxed text-[#4a433d]">
                 <p>
-                  Du lundi au samedi
+                  Mardi au samedi
                   <br />
-                  De 11h30 à 21h
+                  11h30 à 14h30
+                  <br />
+                  18h30 à 21h
                 </p>
-                <p>Fermé le dimanche</p>
               </div>
             </div>
 
@@ -93,16 +94,16 @@ function SiteLayout({ children }) {
               <h4 className="text-3xl md:text-[36px]">Contact</h4>
               <div className="mt-5 space-y-3 font-sans text-[17px] leading-relaxed text-[#4a433d]">
                 <a
-                  href="mailto:e-mail@exemple.com"
+                  href="mailto:contact@maman-ha.com"
                   className="block underline underline-offset-4 transition hover:opacity-80"
                 >
-                  e-mail@exemple.com
+                  contact@maman-ha.com
                 </a>
                 <a
-                  href="tel:+33555555555"
+                  href="tel:+33388252140"
                   className="block underline underline-offset-4 transition hover:opacity-80"
                 >
-                  (555) 555-5555
+                  03 88 25 21 40
                 </a>
                 <a
                   href="#"
