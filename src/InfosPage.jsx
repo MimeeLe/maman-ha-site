@@ -40,14 +40,13 @@ export default function InfosPage() {
 
             <div className="mt-8 space-y-5 font-sans text-[17px] leading-relaxed text-[#4a433d] md:text-[18px]">
               <p>
-                Situé à Strasbourg, Maman Hà propose une cuisine vietnamienne
-                familiale dans un format direct, chaleureux et soigné.
+                Maman Hà vous accueille à Strasbourg dans un lieu pensé pour une
+                cuisine vietnamienne familiale, généreuse et soignée.
               </p>
 
               <p>
-                L’adresse a été pensée comme un lieu vivant, accessible, où l’on
-                vient aussi bien pour emporter un plat que pour prendre le temps
-                de découvrir la carte.
+                Sur place ou à emporter, l’adresse a été imaginée comme un lieu
+                simple, vivant et chaleureux, fidèle à l’esprit de la maison.
               </p>
             </div>
           </div>
@@ -58,12 +57,17 @@ export default function InfosPage() {
                 Horaires
               </p>
               <div className="space-y-3 font-sans text-lg leading-relaxed text-[#3f3732]">
+                <p>Mardi au samedi</p>
                 <p>
-                  Du lundi au samedi
+                  Service du midi
                   <br />
-                  De 11h30 à 21h
+                  11h30 à 14h30
                 </p>
-                <p>Fermé le dimanche</p>
+                <p>
+                  Service du soir
+                  <br />
+                  18h30 à 21h
+                </p>
               </div>
             </section>
 
@@ -73,16 +77,16 @@ export default function InfosPage() {
               </p>
               <div className="space-y-3 font-sans text-lg leading-relaxed text-[#3f3732]">
                 <a
-                  href="mailto:e-mail@exemple.com"
+                  href="mailto:contact@maman-ha.com"
                   className="block underline underline-offset-4"
                 >
-                  e-mail@exemple.com
+                  contact@maman-ha.com
                 </a>
                 <a
-                  href="tel:+33555555555"
+                  href="tel:+33388252140"
                   className="block underline underline-offset-4"
                 >
-                  (555) 555-5555
+                  03 88 25 21 40
                 </a>
               </div>
             </section>
@@ -93,8 +97,8 @@ export default function InfosPage() {
               </p>
               <div className="space-y-3 font-sans text-lg leading-relaxed text-[#3f3732]">
                 <p>
-                  Commande sur place, à emporter, et prochainement selon les
-                  options de service disponibles.
+                  Commande sur place et à emporter, selon les disponibilités du
+                  service.
                 </p>
               </div>
             </section>
@@ -107,7 +111,7 @@ export default function InfosPage() {
           <div className="grid gap-10 md:grid-cols-2">
             <div>
               <p className="mb-3 font-sans text-sm uppercase tracking-[0.22em] text-[#f0d8c9]/70">
-                Lieu
+                Le lieu
               </p>
               <h2 className="text-5xl leading-none md:text-6xl">
                 Une adresse pensée

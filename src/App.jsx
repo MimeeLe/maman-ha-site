@@ -78,10 +78,18 @@ function SiteLayout({ children }) {
 
             <div>
               <h4 className="text-[26px] md:text-[28px]">Horaires</h4>
-              <div className="mt-3 space-y-1 font-sans text-[16px] leading-relaxed text-[#4a433d]">
-                <p>Mardi au samedi</p>
-                <p>11h30 à 14h30</p>
-                <p>18h30 à 21h</p>
+              <div className="mt-3 font-sans text-[16px] leading-relaxed text-[#4a433d]">
+                <p className="text-[#8d473e]">Mardi au samedi</p>
+                <div className="mt-3 space-y-2">
+                  <p>
+                    <span className="mr-2 text-[#8d473e]">Midi</span>
+                    11h30 à 14h30
+                  </p>
+                  <p>
+                    <span className="mr-2 text-[#8d473e]">Soir</span>
+                    18h30 à 21h
+                  </p>
+                </div>
               </div>
             </div>
 
