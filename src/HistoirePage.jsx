@@ -105,20 +105,17 @@ export default function HistoirePage() {
           </div>
         </section>
 
-        <section className="bg-[#efe7db] px-6 py-10 lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex h-[220px] items-center justify-center border border-[#b88d76]/20 bg-[#e6dccd] text-center text-[#7d5b49]">
-              <div>
-                <p className="font-sans text-sm uppercase tracking-[0.22em] text-[#8b6d59]/70">
-                  Image à venir
-                </p>
-                <p className="mt-3 text-3xl md:text-4xl">
-                  Bol et ingrédients
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      <section className="bg-[#efe7db] px-6 py-10 lg:px-8">
+  <div className="mx-auto max-w-6xl">
+    <div className="overflow-hidden rounded-2xl bg-[#e6dccd] px-4 py-6 shadow-sm md:px-6 md:py-8">
+      <img
+        src="/Lam-histoire.jpg"
+        alt="Lam en cuisine"
+        className="mx-auto max-h-[520px] w-full object-contain"
+      />
+    </div>
+  </div>
+</section>
 
         <section className="px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2">

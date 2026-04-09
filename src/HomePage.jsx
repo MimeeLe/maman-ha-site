@@ -1,21 +1,7 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const heroImageTranslate = Math.min(scrollY * 0.18, 90)
-
   const specialties = [
     {
       title: 'Thịt Kho',
@@ -174,16 +160,12 @@ export default function HomePage() {
               Voir la carte
             </Link>
 
-            <div className="mx-auto mt-14 overflow-hidden rounded-[28px] border border-[#f7ead8]/20 shadow-[0_24px_60px_rgba(72,35,17,0.22)] ring-1 ring-[#fff5e7]/10 lg:mt-16">
-              <div className="relative h-[340px] overflow-hidden md:h-[460px] lg:h-[560px]">
+            <div className="mx-auto mt-14 overflow-hidden rounded-[28px] border border-[#f7ead8]/20 bg-[#d8c3a0] shadow-[0_24px_60px_rgba(72,35,17,0.22)] ring-1 ring-[#fff5e7]/10 lg:mt-16">
+              <div className="flex min-h-[340px] items-center justify-center md:min-h-[460px] lg:min-h-[560px]">
                 <img
-                  src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1800&q=80"
-                  alt="Paysage vietnamien"
-                  className="h-[120%] w-full max-w-none object-cover will-change-transform"
-                  style={{
-                    transform: `translateY(${heroImageTranslate}px) scale(1.08)`,
-                    transition: 'transform 0.08s linear',
-                  }}
+                  src="/hero-home-troll.jpg"
+                  alt="Hero Maman Hà"
+                  className="max-h-full w-full object-contain"
                 />
               </div>
             </div>
