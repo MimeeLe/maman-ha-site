@@ -69,19 +69,16 @@ export default function HistoirePage() {
         </section>
 
         <section className="bg-[#a6524b] px-6 py-20 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="flex h-[340px] items-center justify-center border border-[#e8c9b7]/20 bg-[#9b4f48] text-center text-[#f6e9da]">
-              <div>
-                <p className="font-sans text-sm uppercase tracking-[0.22em] text-[#f0d8c9]/70">
-                  Image à venir
-                </p>
-                <p className="mt-3 text-3xl md:text-4xl">
-                  Préparation en cuisine
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div className="mx-auto max-w-5xl">
+    <div className="overflow-hidden rounded-2xl bg-[#9b4f48] px-4 py-6 shadow-sm md:px-6 md:py-8">
+      <img
+        src="/Maman-histoire.jpg"
+        alt="Préparation en cuisine"
+        className="mx-auto max-h-[560px] w-full object-contain"
+      />
+    </div>
+  </div>
+</section>
 
         <section className="px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2">
@@ -93,7 +90,7 @@ export default function HistoirePage() {
             </div>
 
             <div className="space-y-5 font-sans text-[17px] leading-relaxed text-[#4a433d] md:text-[18px]">
-              <p>Ma mère a repris cette cuisine avec une approche différente.</p>
+              <p>Ma mère, Tran Thi Thanh Hà, a repris cette cuisine avec une approche différente.</p>
               <p>Elle avait le sens du contact, de l’échange.</p>
               <p>Elle savait créer du lien autour de ce qu’elle préparait.</p>
               <p>
