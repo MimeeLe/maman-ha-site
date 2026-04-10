@@ -163,7 +163,7 @@ export default function HomePage() {
             <div className="mx-auto mt-14 overflow-hidden rounded-[28px] border border-[#f7ead8]/20 bg-[#d8c3a0] shadow-[0_24px_60px_rgba(72,35,17,0.22)] ring-1 ring-[#fff5e7]/10 lg:mt-16">
               <div className="flex min-h-[340px] items-center justify-center md:min-h-[460px] lg:min-h-[560px]">
                 <img
-                  src="/hero-home-troll.jpg"
+                  src="/Hero-home.jpg"
                   alt="Hero Maman Hà"
                   className="max-h-full w-full object-contain"
                 />
