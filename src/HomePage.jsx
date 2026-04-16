@@ -18,11 +18,11 @@ export default function HomePage() {
       image: '/cach-lam-canh-chua-chay-ngon-1.jpg',
     },
     {
-      title: 'Nori Tacos',
+      title: 'Poulet Gingembre',
       tag: 'Signature maison',
       description:
-        'Une création croustillante et généreuse, entre texture, fraîcheur et gourmandise, imaginée comme une spécialité propre à Maman Hà.',
-      image: '/36474.jpg.jpg',
+        'Un poulet tendre et parfumé, délicatement relevé par le gingembre frais, les aromates et une sauce riche en goût. Un plat réconfortant et généreux, fidèle à l’âme de la cuisine familiale vietnamienne.',
+      image: '/ga-kho-gung.jpg',
     },
   ]
 
