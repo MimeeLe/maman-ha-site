@@ -79,7 +79,7 @@ export default function InfosPage() {
                   <p>
                     Service du midi
                     <br />
-                    11h30 à 14h30
+                    12h à 14h30
                   </p>
                   <p>
                     Service du soir

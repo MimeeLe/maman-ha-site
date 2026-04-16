@@ -158,7 +158,7 @@ function SiteLayout({ children }) {
                 <div className="mt-3 space-y-2">
                   <p>
                     <span className="mr-2 text-[#8d473e]">Midi</span>
-                    11h30 à 14h30
+                    12h à 14h30
                   </p>
                   <p>
                     <span className="mr-2 text-[#8d473e]">Soir</span>
