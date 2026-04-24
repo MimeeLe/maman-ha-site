@@ -18,7 +18,7 @@ export default function HomePage() {
       image: '/cach-lam-canh-chua-chay-ngon-1.jpg',
     },
     {
-      title: 'Poulet Gingembre',
+      title: 'Gà Kho Gừng',
       tag: 'Signature maison',
       description:
         'Un poulet tendre et parfumé, délicatement relevé par le gingembre frais, les aromates et une sauce riche en goût. Un plat réconfortant et généreux, fidèle à l’âme de la cuisine familiale vietnamienne.',
