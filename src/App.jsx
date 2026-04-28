@@ -5,6 +5,8 @@ import HomePage from './HomePage'
 import MenuPage from './MenuPage'
 import HistoirePage from './HistoirePage'
 import InfosPage from './InfosPage'
+import BlogPage from './BlogPage'
+import BlogArticlePage from './BlogArticlePage'
 
 function SiteLayout({ children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -38,6 +40,9 @@ function SiteLayout({ children }) {
               </NavLink>
               <NavLink to="/infos" className={navLinkClass}>
                 Infos
+              </NavLink>
+              <NavLink to="/blog" className={navLinkClass}>
+                Blog
               </NavLink>
             </nav>
 
@@ -106,6 +111,13 @@ function SiteLayout({ children }) {
                   onClick={closeMobileMenu}
                 >
                   Infos
+                </NavLink>
+                <NavLink
+                  to="/blog"
+                  className={navLinkClass}
+                  onClick={closeMobileMenu}
+                >
+                  Blog
                 </NavLink>
                 <a
                   href="https://www.instagram.com/restaurant.maman.ha"
@@ -239,6 +251,24 @@ export default function App() {
           element={
             <SiteLayout>
               <InfosPage />
+            </SiteLayout>
+          }
+        />
+
+        <Route
+          path="/blog"
+          element={
+            <SiteLayout>
+              <BlogPage />
+            </SiteLayout>
+          }
+        />
+
+        <Route
+          path="/blog/:slug"
+          element={
+            <SiteLayout>
+              <BlogArticlePage />
             </SiteLayout>
           }
         />
