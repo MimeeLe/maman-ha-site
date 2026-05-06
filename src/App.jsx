@@ -41,9 +41,6 @@ function SiteLayout({ children }) {
               <NavLink to="/infos" className={navLinkClass}>
                 Infos
               </NavLink>
-              <NavLink to="/blog" className={navLinkClass}>
-                Blog
-              </NavLink>
             </nav>
 
             <div className="absolute left-1/2 -translate-x-1/2 text-center">
@@ -56,7 +53,11 @@ function SiteLayout({ children }) {
               </NavLink>
             </div>
 
-            <div className="ml-auto hidden md:flex md:justify-end md:font-sans md:text-[15px]">
+            <div className="ml-auto hidden md:flex md:justify-end md:gap-6 md:font-sans md:text-[15px]">
+              <NavLink to="/blog" className={navLinkClass}>
+                Blog
+              </NavLink>
+
               <a
                 href="https://www.instagram.com/restaurant.maman.ha"
                 target="_blank"
