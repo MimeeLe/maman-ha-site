@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { blogPosts } from './data/blogPosts'
 
 export default function HomePage() {
+  const latestBlogPosts = blogPosts.slice(0, 3)
+
   const specialties = [
     {
       title: 'Thịt Kho',
@@ -228,6 +231,65 @@ export default function HomePage() {
               >
                 Voir le menu complet
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f2dfca] px-6 py-20 text-[#3b2416] lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl">
+                <p className="mb-3 font-sans text-sm uppercase tracking-[0.26em] text-[#9b3d1f]">
+                  Blog
+                </p>
+                <h2 className="text-4xl leading-none md:text-5xl lg:text-[58px]">
+                  Histoires, plats et saveurs vietnamiennes
+                </h2>
+              </div>
+
+              <Link
+                to="/blog"
+                className="inline-flex w-fit rounded-full border border-[#9b3d1f]/20 bg-white/55 px-6 py-3 font-sans text-sm font-semibold text-[#9b3d1f] shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                Tous les articles
+              </Link>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {latestBlogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  to={`/blog/${post.slug}`}
+                  className="group overflow-hidden rounded-2xl bg-[#fff7ed] shadow-sm shadow-[#8d473e]/10 ring-1 ring-[#8d473e]/10 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-[#8d473e]/12"
+                >
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="h-40 w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                  />
+
+                  <div className="p-5">
+                    <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-[#9b3d1f]">
+                      {post.category}
+                    </p>
+
+                    <h3 className="mt-3 text-2xl leading-tight">
+                      {post.title}
+                    </h3>
+
+                    <p className="mt-3 line-clamp-3 font-sans text-sm leading-relaxed text-[#5c4030]">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="mt-5 flex items-center justify-between gap-4 font-sans text-sm text-[#8b5a3c]">
+                      <span>{post.readingTime}</span>
+                      <span className="font-semibold text-[#9b3d1f] transition group-hover:translate-x-1">
+                        Lire →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
