@@ -9,7 +9,7 @@ const article = {
   date: '2026-05-18',
   category: 'Cuisine vietnamienne',
   readingTime: '8 min',
-  image: '/Blog/hero-cuisine-vn.png',
+  image: '/Blog/20plats/20plats.png',
   guideIntro:
     'Une sélection pensée pour être lue facilement : les grands classiques, les soupes, les plats du quotidien, les rouleaux, les plats mijotés et les douceurs. Chaque carte donne l’essentiel du plat, sa famille de saveurs et son ancrage dans la cuisine vietnamienne.',
   guideConclusion:
