@@ -78,6 +78,127 @@ function renderArticleContent(content) {
     })
 }
 
+const dishTagStyles = {
+  Nord: 'bg-[#dceafe] text-[#24518a]',
+  Centre: 'bg-[#ffe8b8] text-[#8a4b12]',
+  Sud: 'bg-[#d9f3df] text-[#21643c]',
+  'Street food': 'bg-[#ffe0c7] text-[#91400f]',
+  Dessert: 'bg-[#fce0ed] text-[#8f2556]',
+  Boisson: 'bg-[#e6ddff] text-[#5a3aa4]',
+}
+
+function DishGuideContent({ post }) {
+  return (
+    <div className="mt-12 space-y-14">
+      <section className="rounded-3xl bg-white/70 p-7 shadow-sm ring-1 ring-[#8d473e]/10 md:p-8">
+        <p className="text-xl leading-relaxed text-[#4c3324]">
+          {post.guideIntro}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {Object.keys(dishTagStyles).map((tag) => (
+            <span
+              key={tag}
+              className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] ${dishTagStyles[tag]}`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {post.dishGroups.map((group) => (
+        <section key={group.title}>
+          <div className="mb-5 flex items-center gap-4">
+            <h2 className="shrink-0 text-sm font-bold uppercase tracking-[0.22em] text-[#9b3d1f]">
+              {group.title}
+            </h2>
+            <div className="h-px flex-1 bg-[#8d473e]/20" />
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((dish) => (
+              <article
+                key={dish.number}
+                className={`overflow-hidden rounded-2xl bg-[#fff8ef] shadow-sm ring-1 ring-[#8d473e]/10 transition hover:shadow-md hover:shadow-[#8d473e]/10 ${
+                  dish.image ? '' : 'p-4'
+                }`}
+              >
+                {dish.image && (
+                  <img
+                    src={dish.image}
+                    alt={dish.imageAlt || dish.title}
+                    className="h-40 w-full object-cover"
+                  />
+                )}
+
+                <div className={dish.image ? 'p-4' : undefined}>
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="font-sans text-2xl font-black leading-none text-[#d5aa83]">
+                      {dish.number}
+                    </span>
+
+                    <span
+                      className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${
+                        dishTagStyles[dish.tag] || 'bg-[#f2dcc2] text-[#9b3d1f]'
+                      }`}
+                    >
+                      {dish.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-3 text-2xl font-bold leading-none text-[#3b2416]">
+                    {dish.title}
+                  </h3>
+
+                  {dish.vietnamese && (
+                    <p className="mt-1 font-sans text-xs font-semibold text-[#9b3d1f]">
+                      {dish.vietnamese}
+                    </p>
+                  )}
+
+                  <p className="mt-3 font-sans text-sm leading-6 text-[#5c4030]">
+                    {dish.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <section className="rounded-3xl bg-[#3b2416] p-8 text-[#f7ead8] shadow-lg shadow-[#3b2416]/10">
+        <h2 className="text-3xl font-bold">Une cuisine à découvrir plat après plat</h2>
+        <p className="mt-4 font-sans text-[17px] leading-8 text-[#f7ead8]/90">
+          {post.guideConclusion}
+        </p>
+      </section>
+    </div>
+  )
+}
+
+function DishGuideHero({ post }) {
+  return (
+    <header className="relative mt-8 overflow-hidden rounded-2xl bg-[#143f2c] px-6 py-10 text-white shadow-lg shadow-[#3b2416]/10 md:px-10 md:py-12">
+      <div className="relative z-10 max-w-3xl">
+        <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.24em] text-[#68d39c]">
+          Guide gastronomique · Vietnam
+        </p>
+
+        <h1 className="max-w-4xl text-4xl font-black leading-[0.95] md:text-5xl lg:text-6xl">
+          {post.title}
+        </h1>
+
+        <p className="mt-6 max-w-2xl font-sans text-base font-semibold leading-8 text-[#bfe4ce] md:text-lg">
+          Du nord montagneux aux rives du delta du Mékong, la cuisine vietnamienne
+          est l’une des plus nuancées et des plus équilibrées au monde. Voici
+          l’essentiel de ce patrimoine culinaire.
+        </p>
+      </div>
+    </header>
+  )
+}
+
 const shareIcons = {
   share: (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5 fill-none stroke-current stroke-2">
@@ -264,18 +385,24 @@ export default function BlogArticlePage() {
 
       <main className="flex-1 bg-[#f7ead8] text-[#3b2416]">
         <article className="px-6 py-20 md:px-12">
-          <div className="mx-auto max-w-3xl">
+          <div className={`mx-auto ${post.dishGroups ? 'max-w-5xl' : 'max-w-3xl'}`}>
             <Link to="/blog" className="mb-8 inline-block font-semibold text-[#9b3d1f]">
               ← Retour au blog
             </Link>
 
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#9b3d1f]">
-              Blog Maman Hà
-            </p>
+            {post.dishGroups ? (
+              <DishGuideHero post={post} />
+            ) : (
+              <>
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#9b3d1f]">
+                  Blog Maman Hà
+                </p>
 
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-              {post.title}
-            </h1>
+                <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+                  {post.title}
+                </h1>
+              </>
+            )}
 
             <p className="mt-5 text-sm text-[#8b5a3c]">
               {post.date} · {post.readingTime}
@@ -283,14 +410,20 @@ export default function BlogArticlePage() {
 
             <ShareArticleButton post={post} />
 
-            <img
-              src={post.image}
-              alt={post.title}
-              className="mt-10 h-[420px] w-full rounded-3xl object-cover shadow-sm"
-            />
+            {!post.dishGroups && (
+              <img
+                src={post.image}
+                alt={post.title}
+                className="mt-10 h-[420px] w-full rounded-3xl object-cover shadow-sm"
+              />
+            )}
 
             <div className="mt-12 space-y-10 text-lg leading-relaxed text-[#4c3324]">
-              {renderArticleContent(post.content)}
+              {post.dishGroups ? (
+                <DishGuideContent post={post} />
+              ) : (
+                renderArticleContent(post.content)
+              )}
             </div>
 
             <div className="mt-14 rounded-3xl bg-white/70 p-8">
