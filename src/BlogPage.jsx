@@ -11,6 +11,14 @@ export default function BlogPage() {
           name="description"
           content="Découvrez le blog de Maman Hà : cuisine vietnamienne, plats traditionnels, spécialités familiales, conseils et histoires autour du Vietnam à Strasbourg."
         />
+        <link rel="canonical" href="https://maman-ha.com/blog" />
+        <meta property="og:title" content="Blog cuisine vietnamienne à Strasbourg | Maman Hà" />
+        <meta
+          property="og:description"
+          content="Découvrez le blog de Maman Hà : cuisine vietnamienne, plats traditionnels et histoires autour du Vietnam à Strasbourg."
+        />
+        <meta property="og:url" content="https://maman-ha.com/blog" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <main className="flex-1 bg-[#f7ead8] text-[#3b2416]">

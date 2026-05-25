@@ -4,9 +4,35 @@ import { useMemo, useState } from 'react'
 import { blogPosts } from './data/blogPosts'
 
 function renderInlineText(text) {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+  return text.split(/(\*\*[^*]+\*\*|\[[^\]]+]\([^)]+\))/g).map((part, index) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+
+    const linkMatch = part.match(/^\[([^\]]+)]\(([^)]+)\)$/)
+
+    if (linkMatch) {
+      const [, label, href] = linkMatch
+
+      if (href.startsWith('/')) {
+        return (
+          <Link key={index} to={href} className="font-semibold text-[#9b3d1f] underline underline-offset-4">
+            {label}
+          </Link>
+        )
+      }
+
+      return (
+        <a
+          key={index}
+          href={href}
+          className="font-semibold text-[#9b3d1f] underline underline-offset-4"
+          rel="noreferrer"
+          target="_blank"
+        >
+          {label}
+        </a>
+      )
     }
 
     return part
@@ -350,12 +376,16 @@ export default function BlogArticlePage() {
     )
   }
 
+  const articleUrl = `https://maman-ha.com/blog/${post.slug}`
+  const articleImage = `https://maman-ha.com${post.image}`
+
   const articleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.metaDescription || post.excerpt,
-    image: `https://maman-ha.com${post.image}`,
+    image: articleImage,
+    url: articleUrl,
     datePublished: post.date,
     dateModified: post.date,
     author: {
@@ -365,10 +395,14 @@ export default function BlogArticlePage() {
     publisher: {
       '@type': 'Organization',
       name: 'Maman Hà',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://maman-ha.com/logo-maman-ha.png',
+      },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://maman-ha.com/blog/${post.slug}`,
+      '@id': articleUrl,
     },
   }
 
@@ -377,6 +411,20 @@ export default function BlogArticlePage() {
       <Helmet>
         <title>{post.metaTitle || `${post.title} | Maman Hà`}</title>
         <meta name="description" content={post.metaDescription || post.excerpt} />
+        <link rel="canonical" href={articleUrl} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Maman Hà" />
+        <meta property="og:title" content={post.metaTitle || `${post.title} | Maman Hà`} />
+        <meta property="og:description" content={post.metaDescription || post.excerpt} />
+        <meta property="og:url" content={articleUrl} />
+        <meta property="og:image" content={articleImage} />
+        <meta property="article:published_time" content={post.date} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.metaTitle || `${post.title} | Maman Hà`} />
+        <meta name="twitter:description" content={post.metaDescription || post.excerpt} />
+        <meta name="twitter:image" content={articleImage} />
 
         <script type="application/ld+json">
           {JSON.stringify(articleStructuredData)}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { blogPosts } from './data/blogPosts'
+import { goiCuonEvent } from './data/goiCuonEvent'
 
 export default function HomePage() {
   const latestBlogPosts = blogPosts.slice(0, 3)
@@ -132,6 +133,32 @@ export default function HomePage() {
       </Helmet>
 
       <main>
+        <section className="bg-[#7f3d36] px-5 py-3 text-[#f7ead8] lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 font-sans text-sm sm:flex-row sm:items-center sm:justify-between">
+            <Link
+              to="/goi-cuon"
+              className="group flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3"
+            >
+              <span className="w-fit rounded-full bg-[#f2dfca] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8d473e]">
+                {goiCuonEvent.label}
+              </span>
+              <span className="font-semibold leading-snug">
+                Gỏi Cuốn à partager · {goiCuonEvent.dates} · réservation 24h à l’avance
+              </span>
+              <span className="hidden font-semibold text-[#f2dfca] transition group-hover:translate-x-0.5 sm:inline">
+                Découvrir →
+              </span>
+            </Link>
+
+            <a
+              href={goiCuonEvent.phoneHref}
+              className="w-fit rounded-full border border-[#f2dfca]/30 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition hover:bg-[#f2dfca] hover:text-[#8d473e]"
+            >
+              Réserver au {goiCuonEvent.phone}
+            </a>
+          </div>
+        </section>
+
         <section className="relative px-6 pb-20 pt-12 lg:px-8 lg:pb-28 lg:pt-16">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(88,45,21,0.10),rgba(88,45,21,0.03)_28%,rgba(88,45,21,0))]" />
 
@@ -170,6 +197,67 @@ export default function HomePage() {
                   alt="Hero Maman Hà"
                   className="max-h-full w-full object-contain"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f7ead8] px-6 py-16 text-[#3b2416] lg:px-8 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 overflow-hidden rounded-[28px] border border-[#8d473e]/12 bg-[#fff7ed] p-5 shadow-[0_22px_50px_rgba(87,43,24,0.12)] md:grid-cols-[0.92fr_1.08fr] md:p-7 lg:p-9">
+            <div className="min-h-[280px] overflow-hidden rounded-[22px] bg-[#efe0ca]">
+              {goiCuonEvent.image ? (
+                <img
+                  src={goiCuonEvent.image}
+                  alt="Gỏi cuốn vietnamiens à partager chez Maman Hà"
+                  className="h-full min-h-[280px] w-full object-cover"
+                />
+              ) : (
+                <div className="flex h-full min-h-[280px] items-center justify-center px-8 text-center">
+                  <p className="font-sans text-sm uppercase tracking-[0.24em] text-[#9b3d1f]">
+                    Maman Hà
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col justify-center py-2 md:py-4">
+              <p className="font-sans text-xs font-bold uppercase tracking-[0.24em] text-[#9b3d1f]">
+                {goiCuonEvent.label}
+              </p>
+
+              <h2 className="mt-4 max-w-2xl text-4xl leading-none text-[#8d473e] md:text-5xl lg:text-[58px]">
+                {goiCuonEvent.shortTitle}
+              </h2>
+
+              <p className="mt-5 max-w-2xl font-sans text-[17px] leading-8 text-[#5c4030]">
+                Pour la fête des mères, composez et roulez vos gỏi cuốn autour
+                d’un plateau à partager : un moment frais, familial et convivial,
+                disponible uniquement deux jours chez Maman Hà.
+              </p>
+
+              <div className="mt-7 grid gap-3 font-sans text-sm font-semibold text-[#3b2416] sm:grid-cols-2">
+                <div className="rounded-2xl bg-[#f2dfca] px-4 py-3">
+                  {goiCuonEvent.dates}
+                </div>
+                <div className="rounded-2xl bg-[#f2dfca] px-4 py-3">
+                  Sur place uniquement · réservation 24h à l’avance
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href={goiCuonEvent.phoneHref}
+                  className="inline-flex justify-center rounded-full bg-[#8d473e] px-7 py-4 font-sans text-sm font-bold uppercase tracking-[0.12em] text-[#f8efe5] shadow-[0_12px_28px_rgba(76,31,24,0.18)] transition hover:opacity-95"
+                >
+                  Réserver au {goiCuonEvent.phone}
+                </a>
+
+                <Link
+                  to="/goi-cuon"
+                  className="inline-flex justify-center rounded-full border border-[#8d473e]/25 px-7 py-4 font-sans text-sm font-bold uppercase tracking-[0.12em] text-[#8d473e] transition hover:bg-[#f2dfca]"
+                >
+                  Découvrir l’événement
+                </Link>
               </div>
             </div>
           </div>
