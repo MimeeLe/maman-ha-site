@@ -11,7 +11,7 @@ const article = {
   date: '2026-05-22',
   category: 'Guide',
   readingTime: '6 min',
-  image: '/Blog/hero-cuisine-vn.png',
+  image: '/Blog/MangerStrasbourg.png',
   content: `
 # Où manger vietnamien à Strasbourg : quand la cuisine raconte une histoire
 
@@ -64,6 +64,8 @@ Situé au **8 Quai de Paris, 67000 Strasbourg**, **Banh Mi Saigon** propose une 
 ---
 
 ## Maman Hà : la cuisine vietnamienne comme héritage familial
+
+![Façade du restaurant Maman Hà à Strasbourg](/IMG_0359.jpg)
 
 Avec **Maman Hà**, on entre dans une autre dimension de la cuisine vietnamienne. Ici, il ne s’agit pas seulement de servir des plats vietnamiens. Il s’agit de **transmettre une histoire**.
 
