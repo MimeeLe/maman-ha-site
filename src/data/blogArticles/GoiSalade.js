@@ -9,7 +9,7 @@ const article = {
   date: '2026-06-01',
   category: 'Cuisine vietnamienne',
   readingTime: '8 min',
-  image: '/Blog/ChatGPT%20Image%20Jun%201,%202026,%2005_27_51%20PM.png',
+  image: '/Blog/ChatGPT%20Image%20Jun%201,%202026,%2005_47_25%20PM.png',
   content: `
 # Gỏi : les salades vietnamiennes entre fraîcheur, équilibre et traditions
 
