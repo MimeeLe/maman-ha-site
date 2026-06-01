@@ -7,7 +7,6 @@ import HistoirePage from './HistoirePage'
 import InfosPage from './InfosPage'
 import BlogPage from './BlogPage'
 import BlogArticlePage from './BlogArticlePage'
-import GoiCuonPage from './GoiCuonPage'
 
 function SiteLayout({ children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -55,10 +54,6 @@ function SiteLayout({ children }) {
             </div>
 
             <div className="ml-auto hidden md:flex md:justify-end md:gap-6 md:font-sans md:text-[15px]">
-              <NavLink to="/goi-cuon" className={navLinkClass}>
-                Gỏi Cuốn
-              </NavLink>
-
               <NavLink to="/blog" className={navLinkClass}>
                 Blog
               </NavLink>
@@ -117,13 +112,6 @@ function SiteLayout({ children }) {
                   onClick={closeMobileMenu}
                 >
                   Infos
-                </NavLink>
-                <NavLink
-                  to="/goi-cuon"
-                  className={navLinkClass}
-                  onClick={closeMobileMenu}
-                >
-                  Fête des Mères
                 </NavLink>
                 <NavLink
                   to="/blog"
@@ -264,15 +252,6 @@ export default function App() {
           element={
             <SiteLayout>
               <InfosPage />
-            </SiteLayout>
-          }
-        />
-
-        <Route
-          path="/goi-cuon"
-          element={
-            <SiteLayout>
-              <GoiCuonPage />
             </SiteLayout>
           }
         />
