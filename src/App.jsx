@@ -134,6 +134,11 @@ function SiteLayout({ children }) {
         </div>
       </header>
 
+      <div className="bg-[#f2dfca] px-5 py-3 text-center font-sans text-sm font-semibold leading-relaxed text-[#8d473e] shadow-[0_8px_18px_rgba(76,31,24,0.08)] md:text-[15px]">
+        Fermeture estivale : fermé du samedi 1er août au soir au lundi 10 août
+        inclus. Réouverture le mardi 11 août à 12h.
+      </div>
+
       <div className="flex-1">{children}</div>
 
       <footer className="bg-[#efe0ca] text-[#332a24]">

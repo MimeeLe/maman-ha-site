@@ -38,6 +38,21 @@ export default function HomePage() {
     },
   ]
 
+  const googleReviews = [
+    {
+      author: 'Z. E. G.',
+      text: 'Incroyable expérience toute en authenticité 🥰 La cuisine est absolument délicieuse, gros coup de cœur sur le Gà kho gùng! Le décor est magnifique et nous fait vraiment voyager au Vietnam. Merci à la gérante et au personnel qui sont adorables, avec une histoire extrêmement touchante 💗 Je reviendrai!',
+    },
+    {
+      author: 'L. L.',
+      text: 'L’ambiance vietnamienne jusque dans l’assiette ! Tout y est, le goût, le charme et une super équipe merci pour ce moment. Hâte de TOUT goûter !',
+    },
+    {
+      author: 'L. R.',
+      text: 'Excellente découverte ! Un restaurant vietnamien pas comme les autres, une cuisine familiale, pleine de partage, très goûteuse et qui nous a ramené directement au Vietnam dés les premières bouchées. C’est une cuisine faite avec amour et passion et ça se ressent ! Nous reviendrons avec grand plaisir 🌞',
+    },
+  ]
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
@@ -300,6 +315,62 @@ export default function HomePage() {
               >
                 Voir le menu complet
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f2dfca] px-6 py-20 text-[#3b2416] lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-14">
+              <p className="mb-4 font-sans text-sm uppercase tracking-[0.26em] text-[#9b3d1f]">
+                Avis Google
+              </p>
+              <h2 className="text-5xl leading-[0.96] md:text-6xl lg:text-[74px]">
+                Ils parlent de nous
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl font-sans text-[17px] leading-relaxed text-[#5c4030] md:text-[18px]">
+                Des mots qui nous touchent et qui racontent ce que nous aimons
+                partager chaque jour : une cuisine familiale, généreuse et
+                sincère.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3 lg:gap-7">
+              {googleReviews.map((review) => (
+                <article
+                  key={review.author}
+                  className="flex h-full flex-col rounded-2xl bg-[#fff7ed] p-6 shadow-sm shadow-[#8d473e]/10 ring-1 ring-[#8d473e]/10 md:p-7"
+                >
+                  <div
+                    className="mb-5 font-sans text-[18px] leading-none tracking-[0.08em] text-[#d2a34a]"
+                    aria-label="5 étoiles sur 5"
+                  >
+                    ★★★★★
+                  </div>
+
+                  <p className="flex-1 font-sans text-[16px] leading-relaxed text-[#4b3324]">
+                    “{review.text}”
+                  </p>
+
+                  <p className="mt-6 border-t border-[#8d473e]/12 pt-4 font-sans text-sm font-semibold text-[#8d473e]">
+                    {review.author}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-12 flex flex-col items-center justify-center gap-5 text-center md:flex-row md:gap-7">
+              <p className="font-sans text-[18px] font-semibold text-[#8d473e] md:text-[20px]">
+                4,9/5 sur Google
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Restaurant%20Maman%20H%C3%A0%209%20rue%20de%20Berne%20Strasbourg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full border border-[#9b3d1f]/20 bg-white/60 px-7 py-3.5 font-sans text-sm font-semibold text-[#9b3d1f] shadow-sm transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                Voir tous nos avis Google
+              </a>
             </div>
           </div>
         </section>
