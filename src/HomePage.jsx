@@ -1,8 +1,17 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { blogPosts } from './data/blogPosts'
 
 export default function HomePage() {
+  const [holidayPopupOpen, setHolidayPopupOpen] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+
+    return window.sessionStorage.getItem('holidayPopupDismissed') !== 'true'
+  })
+
   const latestBlogPosts = blogPosts.slice(0, 3)
 
   const specialties = [
@@ -112,6 +121,11 @@ export default function HomePage() {
     ],
   }
 
+  const closeHolidayPopup = () => {
+    setHolidayPopupOpen(false)
+    window.sessionStorage.setItem('holidayPopupDismissed', 'true')
+  }
+
   return (
     <>
       <Helmet>
@@ -132,6 +146,61 @@ export default function HomePage() {
       </Helmet>
 
       <main>
+        {holidayPopupOpen && (
+          <div
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-[#2b1710]/68 px-4 py-6 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="holiday-popup-title"
+            onClick={closeHolidayPopup}
+          >
+            <div
+              className="relative grid max-h-[92vh] w-full max-w-4xl overflow-hidden rounded-[24px] bg-[#f2dfca] text-[#3b2416] shadow-[0_28px_80px_rgba(24,11,6,0.36)] ring-1 ring-[#fff4e8]/45 md:grid-cols-[0.76fr_1fr]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={closeHolidayPopup}
+                aria-label="Fermer l’annonce"
+                className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#8d473e] font-sans text-2xl leading-none text-[#f8efe5] shadow-[0_10px_24px_rgba(76,31,24,0.18)] transition hover:opacity-90"
+              >
+                ×
+              </button>
+
+              <div className="max-h-[44vh] bg-[#e9d1b3] md:max-h-none">
+                <img
+                  src="/Sans titre (Reel Instagram).PNG"
+                  alt="Annonce de congés du restaurant Maman Hà"
+                  className="h-full min-h-[260px] w-full object-cover md:aspect-[9/16]"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center px-6 py-8 md:px-10 lg:px-12">
+                <p className="mb-4 font-sans text-xs uppercase tracking-[0.24em] text-[#9b3d1f] md:text-sm">
+                  Fermeture estivale
+                </p>
+
+                <h2
+                  id="holiday-popup-title"
+                  className="max-w-xl text-4xl leading-[0.96] md:text-5xl lg:text-[58px]"
+                >
+                  Nous prenons quelques jours de congé.
+                </h2>
+
+                <div className="mt-6 max-w-xl space-y-4 font-sans text-[17px] leading-relaxed text-[#4b3324] md:text-[19px]">
+                  <p>
+                    Le restaurant sera fermé du samedi 1er août au soir jusqu’au
+                    lundi 10 août inclus.
+                  </p>
+                  <p className="text-[21px] font-semibold text-[#8d473e] md:text-[23px]">
+                    Réouverture le mardi 11 août à 12h.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="relative px-6 pb-20 pt-12 lg:px-8 lg:pb-28 lg:pt-16">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(88,45,21,0.10),rgba(88,45,21,0.03)_28%,rgba(88,45,21,0))]" />
 
